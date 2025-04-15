@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waypoint Manager</title>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+    #map {
+      flex: 3;
+    }
+    #controls {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background-color: #f4f4f4;
+    }
+    .waypoint-item {
+      margin: 10px 0;
+      padding: 5px;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+    input[type="number"] {
+      width: 100%;
+    }
+    button {
+      margin: 2px 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="controls">
+    <h2>Waypoints</h2>
+    <div>
+      <input id="manual-lat" type="number" placeholder="Latitude" step="any" />
+      <input id="manual-lng" type="number" placeholder="Longitude" step="any" />
+      <input id="manual-alt" type="number" placeholder="Altitude (m)" />
+      <button onclick="addManualMarker()">Add Marker Manually</button>
+    </div>
+    <div id="waypoint-list"></div>
+    <button onclick="copyAllWaypoints()">Copy All Waypoints</button>
+    <button onclick="exportWaypoints()">Export as JSON</button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
